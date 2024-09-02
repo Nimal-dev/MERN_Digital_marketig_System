@@ -1,0 +1,70 @@
+  // const proceedToCheckout = () => {
+  //   const userdata = JSON.parse(localStorage.getItem('userdata'));
+  //   const customerId = userdata._id;
+  //   const address = prompt("Please enter your address");
+  
+  //   if (!address) {
+  //     alert("Address is required to proceed to checkout");
+  //     return;
+  //   }
+  
+  //   console.log('Cart items before checkout:', cartItems);
+  
+  //   const amount = cartItems.reduce((acc, item) => {
+  //     const price = item.productId?.price || item.packageId?.packagePrice || 0;
+  //     return acc + price;
+  //   }, 0);
+  
+  //   const options = {
+  //     key: 'rzp_test_4Ex6Tyjkp79GFy', // Replace with your Razorpay key ID
+  //     amount: amount * 100, // Convert to paise
+  //     currency: 'INR',
+  //     name: 'Your Store Name',
+  //     description: 'Test payment',
+  //     image: 'https://example.com/your_logo',
+  //     handler: (response) => {
+  //       console.log('Razorpay response:', response);
+  //       if (response.razorpay_payment_id) {
+  //         fetch('http://localhost:4000/customer/placeOrder', {
+  //           method: 'POST',
+  //           headers: {
+  //             'Content-Type': 'application/json',
+  //           },
+  //           body: JSON.stringify({ customerId, address, paymentId: response.razorpay_payment_id }),
+  //         })
+  //           .then(response => response.json())
+  //           .then(data => {
+  //             console.log('Place order response:', data);
+  //             if (data.success) {
+  //               alert('Order placed successfully');
+  //               navigate('/checkout', { state: { cartItems: [] } }); // Redirect to success page
+  //             } else {
+  //               alert('Error placing order: ' + data.message);
+  //             }
+  //           })
+  //           .catch(error => console.error('Error placing order:', error));
+  //       } else {
+  //         alert('Payment failed');
+  //       }
+  //     },
+  //     prefill: {
+  //       name: userdata.name,
+  //       email: userdata.email,
+  //       contact: userdata.phone,
+  //     },
+  //     notes: {
+  //       address: address,
+  //     },
+  //     theme: {
+  //       color: '#F37254',
+  //     },
+  //   };
+  
+  //   const rzp1 = new window.Razorpay(options);
+  //   rzp1.on('payment.failed', function (response) {
+  //     console.error('Razorpay payment failed:', response.error);
+  //     alert('Payment failed: ' + response.error.description);
+  //   });
+  
+  //   rzp1.open();
+  // };
